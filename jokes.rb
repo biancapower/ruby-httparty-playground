@@ -2,7 +2,9 @@
 # using the API https://sv443.net/jokeapi/v2/ #
 ###############################################
 require 'httparty'
+base_uri = 'https://sv443.net/jokeapi/v2/joke/'
 
+# default values for category and blacklist
 category = {
   programming: true,
   miscellaneous: true,
@@ -17,7 +19,7 @@ blacklist = {
   sexist: true,
 }
 
-base_uri = 'https://sv443.net/jokeapi/v2/joke/'
+# construct category_string
 category_string = ''
 
 category.each do | key, value |
@@ -46,8 +48,9 @@ puts blacklist_string
 # construct uri
 uri = base_uri + category_string + '?blacklistFlags=' + blacklist_string
 
-#todo: dynamically generate this link based on true / false of above values
-#response = HTTParty.get('https://sv443.net/jokeapi/v2/joke/Programming,Miscellaneous,Dark?blacklistFlags=nsfw,religious,political,racist,sexist')
+# get response from uri
 response = HTTParty.get(uri)
+
+# debug printing
 p response.parsed_response['category']
 p uri
