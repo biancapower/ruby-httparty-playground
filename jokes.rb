@@ -6,15 +6,15 @@ require 'httparty'
 category = {
   programming: true,
   miscellaneous: true,
-  dark: true
+  dark: false,
 }
 
 blacklist = {
-  nsfw: true
-  religious: true
-  political: true
-  racist: true
-  sexist: true
+  nsfw: true,
+  religious: true,
+  political: true,
+  racist: true,
+  sexist: true,
 }
 
 #todo: dynamically generate this link based on true / false of above values
