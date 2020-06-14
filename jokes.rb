@@ -18,7 +18,6 @@ blacklist = {
 }
 
 base_uri = 'https://sv443.net/jokeapi/v2/joke/'
-#category_string = 'Programming,Miscellaneous,Dark'
 category_string = ''
 blacklist_string = 'nsfw,religious,political,racist,sexist'
 
