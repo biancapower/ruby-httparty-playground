@@ -19,7 +19,6 @@ blacklist = {
 
 base_uri = 'https://sv443.net/jokeapi/v2/joke/'
 category_string = ''
-blacklist_string = 'nsfw,religious,political,racist,sexist'
 
 category.each do | key, value |
   puts '#{key}: #{value}'
@@ -31,6 +30,20 @@ end
 category_string.delete_suffix!(',')
 puts category_string
 
+# construct blacklist_string
+blacklist_string = ''
+
+blacklist.each do | key, value |
+  puts '#{key}: #{value}'
+  if value
+    blacklist_string += key.to_s + ","
+  end
+end
+
+blacklist_string.delete_suffix!(',')
+puts blacklist_string
+
+# construct uri
 uri = base_uri + category_string + '?blacklistFlags=' + blacklist_string
 
 #todo: dynamically generate this link based on true / false of above values
